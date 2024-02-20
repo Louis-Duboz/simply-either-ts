@@ -1,3 +1,7 @@
+#ts-expressive-result
+Build/**/*
+package-lock.json
+
 # Logs
 logs
 *.log

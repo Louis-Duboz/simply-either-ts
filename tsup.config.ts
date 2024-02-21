@@ -10,5 +10,5 @@ export default defineConfig({
     target: "es6",
     skipNodeModulesBundle: true,
     sourcemap: true,
-    minify: false,
+    minify: true,
 });

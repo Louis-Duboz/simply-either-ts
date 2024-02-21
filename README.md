@@ -12,7 +12,7 @@ The `ts-expressive-result` library provides a straightforward and elegant approa
 
 Install the package via npm:
 
-`npm install ts-expressive-result` 
+```npm install --save-dev ts-expressive-result```
 
 ## Usage
 
@@ -21,7 +21,7 @@ Install the package via npm:
 This example showcases how to deal with expected errors in your code such as here, with the divide function which can not manage the division by 0 but return an error.
 
 ```typescript
-import { Result } from './Result';
+import { Result } from 'ts-expressive-result';
 
 class CanNotDivideByZero extends Error {
     public constructor() {
@@ -55,7 +55,7 @@ console.log(divisionBy10.IsFailure); // false
 This example showcases how to enforce business rules whereas the Fibonacci function has an arbitrary limit you must not exceed.
 
 ```typescript
-import { Result } from './Result';
+import { Result } from 'ts-expressive-result';
 
 class ValueCanNotExceedTheLimit extends Error {
     public constructor(limit: number) {

@@ -1,6 +1,6 @@
 {
     "name": "ts-expressive-result",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "ts-expressive-result allows you to make errors part of your functions and methods signature.",
     "private": false,
     "main": "./Build/index.js",

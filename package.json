@@ -1,14 +1,14 @@
 {
     "name": "simply-either-ts",
     "version": "1.0",
-    "description": "ts-expressive-result allows you to make errors part of your functions and methods signature.",
+    "description": "simply-either-ts allows you to make errors part of your functions and methods signature.",
     "private": false,
     "main": "./Build/index.js",
     "module": "./Build/index.mjs",
     "types": "./Build/index.d.ts",
     "license": "MIT",
     "repository": {
-        "url": "https://github.com/Louis-Duboz/ts-expressive-result"
+        "url": "https://github.com/Louis-Duboz/simply-either-ts"
     },
     "scripts": {
         "test": "jest",

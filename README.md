@@ -1,7 +1,6 @@
+# simply-either-ts
 
-# ts-expressive-result
-
-The `ts-expressive-result` library provides a straightforward and elegant approach for TypeScript developers to manage successes and errors in their codebase. Inspired by patterns found in languages like Java, this library is designed to enhance expressiveness, particularly in scenarios requiring rich domain modeling, such as Domain-Driven Design (DDD). By explicitly defining expected errors, it forces developers to handle these scenarios meticulously, thereby significantly enhancing the readability and robustness of the code.
+The `simply-either-ts` library provides a straightforward and elegant approach for TypeScript developers to manage successes and errors in their codebase. Inspired by patterns found in languages like Java, this library is designed to enhance expressiveness, particularly in scenarios requiring rich domain modeling, such as Domain-Driven Design (DDD). By explicitly defining expected errors, it forces developers to handle these scenarios meticulously, thereby significantly enhancing the readability and robustness of the code.
 
 ## Features
 
@@ -12,16 +11,16 @@ The `ts-expressive-result` library provides a straightforward and elegant approa
 
 Install the package via npm:
 
-```npm install --save-dev ts-expressive-result```
+```npm install --save-dev simply-either-ts```
 
-## Usage
+## API - Usage
 
 ### Example 1: Handling Division Operations
 
 This example showcases how to deal with expected errors in your code such as here, with the divide function which can not manage the division by 0 but return an error.
 
 ```typescript
-import { Result } from 'ts-expressive-result';
+import { Either, Failure, Success } from 'simply-either-ts';
 
 class CanNotDivideByZero extends Error {
     public constructor() {
@@ -29,11 +28,11 @@ class CanNotDivideByZero extends Error {
     }
 }
 
-function Division(dividend: number, divisor: number): Result<number, CanNotDivideByZero> {
+function Division(dividend: number, divisor: number): Either<number, CanNotDivideByZero> {
     if (divisor === 0)
-        return Result.Failure(new CanNotDivideByZero());
+        return Failure(new CanNotDivideByZero());
         
-    return Result.Success(dividend / divisor);
+    return Success(dividend / divisor);
 }
 
 // Example usage
@@ -55,7 +54,7 @@ console.log(divisionBy10.IsFailure); // false
 This example showcases how to enforce business rules whereas the Fibonacci function has an arbitrary limit you must not exceed.
 
 ```typescript
-import { Result } from 'ts-expressive-result';
+import { Either, Failure, Success } from 'simply-either-ts';
 
 class ValueCanNotExceedTheLimit extends Error {
     public constructor(limit: number) {
@@ -70,13 +69,13 @@ function FibonacciLogic(value: number): number {
     return FibonacciLogic(value - 1) + FibonacciLogic(value - 2);
 }
 
-function Fibonacci(value: number): Result<number, ValueCanNotExceedTheLimit> {
+function Fibonacci(value: number): Either<number, ValueCanNotExceedTheLimit> {
     const limit = 20;
     
     if (value > limit)
-        return Result.Failure(new ValueCanNotExceedTheLimit(limit));
+        return Failure(new ValueCanNotExceedTheLimit(limit));
         
-    return Result.Success(FibonacciLogic(value));
+    return Success(FibonacciLogic(value));
 }
 
 // Example usage
@@ -95,59 +94,6 @@ console.log(fib21.IsFailure); // true
 const fib21Failure = fib21.Failure;
 console.log(fib21Failure); // [Error: Value cannot exceed the limit of 20.]
 console.log(fib21.Success); // Throws IncorrectEvaluationOfTheResult: Attempt to evaluate a failure as a success.
-```
-
-## UML Conception
-
-```mermaid
-classDiagram
-    class Success~TSuccess~ {
-		+type: "Success"
-        +constructor(TSuccess value)
-        get +Value() TSuccess
-        +IsFailure() false
-        +IsSuccess() true
-    }
-
-    class Failure~TFailure~ {
-		+type: "Failure"
-        +constructor(TFailure value)
-        get +Value() TFailure
-        +IsFailure() true
-        +IsSuccess() false
-    }
-
-    class Result~TSuccess, TFailure~ {
-        +constructor(value: Either~TSuccess, TFailure~)
-        get +Success() TSuccess
-        get +Failure() TFailure
-        get +IsSuccess() bool
-        get +IsFailure() bool
-        get +Value() TFailure|TSuccess
-        static +Success(TSuccess) Result
-        static +Failure(TFailure) Result
-    }
-
-    Result "1..1" -- Either~TSuccess, TFailure~: -value
-```
-
-```mermaid
-classDiagram
-	class IncorrectEvaluationOfTheResult {
-	        +constructor(string error)
-	    }
-
-	    class AttemptToEvaluateAFailureAsASuccess {
-	        +constructor()
-	    }
-
-	    class AttemptToEvaluateASuccessAsAFailure {
-	        +constructor()
-	    }
-	    
-AttemptToEvaluateAFailureAsASuccess --|> IncorrectEvaluationOfTheResult: extends
-AttemptToEvaluateASuccessAsAFailure --|> IncorrectEvaluationOfTheResult: extends
-IncorrectEvaluationOfTheResult --|> Error: extends
 ```
 
 ## Contributing

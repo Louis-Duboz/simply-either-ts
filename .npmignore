@@ -1,7 +1,7 @@
-./Source
-./Tests
-./node_modules
-./idea
+Source
+Tests
+node_modules
+.idea
 
 .env
 .DS_Store

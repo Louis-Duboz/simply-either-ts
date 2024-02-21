@@ -1,6 +1,6 @@
 {
     "name": "simply-either-ts",
-    "version": "1.0.3",
+    "version": "1.0",
     "description": "ts-expressive-result allows you to make errors part of your functions and methods signature.",
     "private": false,
     "main": "./Build/index.js",

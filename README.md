@@ -80,13 +80,13 @@ function Fibonacci(value: number): Either<number, ValueCanNotExceedTheLimit> {
 
 // Example usage
 const fib20 = Fibonacci(20);
-console.log(fib20); // Result { value: Success { type: "Success", value: 6765 } }
+console.log(fib20); // { value: Success { type: "Success", value: 6765 } }
 console.log(fib20.Value); // 6765
 console.log(fib20.IsSuccess); // true
 console.log(fib20.IsFailure); // false
 
 const fib21 = Fibonacci(21);
-console.log(fib21); // Result { value: Failure { Value: [Error: Value cannot exceed the limit of 20.] } }
+console.log(fib21); // { value: Failure { Value: [Error: Value cannot exceed the limit of 20.] } }
 console.log(fib21.Value); // [Error: Value cannot exceed the limit of 20.]
 console.log(fib21.IsSuccess); // false
 console.log(fib21.IsFailure); // true

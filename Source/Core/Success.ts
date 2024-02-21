@@ -1,42 +1,11 @@
-import { Failure } from "./Failure";
+import { Either } from "./Either";
+import { SuccessValue } from "./SuccessValue";
 
 /**
- * Represents a successful result.
- * @template TSuccess The type of the success value.
+ * Creates a new Either instance representing a success.
+ * @param {TSuccess} success The success value.
+ * @returns {Either<TSuccess, TFailure>} A new Either instance representing a success.
  */
-export class Success<TSuccess> {
-    private readonly value: TSuccess;
-
-    public type: "Success" = "Success" as const;
-
-    /**
-     * Creates a new instance of Success.
-     * @param value The success value.
-     */
-    public constructor(value: TSuccess) {
-        this.value = value;
-    }
-
-    /**
-     * Gets the success value.
-     */
-    public get Value(): TSuccess { return this.value; }
-
-    /**
-     * Checks if the result is a failure.
-     * @template TFailure The type of the failure value.
-     * @returns False, indicating that this is not a failure.
-     */
-    public IsFailure<TFailure>(): this is Failure<TFailure> {
-        return false;
-    }
-
-    /**
-     * Checks if the result is a success.
-     * @template TSuccess The type of the success value.
-     * @returns True, indicating that this is a success.
-     */
-    public IsSuccess<TSuccess>(): this is Success<TSuccess> {
-        return true;
-    }
+export function Success<TSuccess, TFailure>(success: TSuccess): Either<TSuccess, TFailure> {
+    return new Either<TSuccess, TFailure>(new SuccessValue<TSuccess>(success));
 }

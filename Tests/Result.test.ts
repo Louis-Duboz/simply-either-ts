@@ -1,11 +1,10 @@
-import { Result } from '../Build/index';
+import { AttemptToEvaluateAFailureAsASuccess, Failure, Success } from "../Build/index";
 import { AttemptToEvaluateASuccessAsAFailure } from "../Build/index";
-import { AttemptToEvaluateAFailureAsASuccess } from "../Build/index";
 
-describe('Result', () => {
+describe('Either', () => {
     describe('Success case', () => {
         const successValue = 42;
-        const successResult = Result.Success<number, string>(successValue);
+        const successResult = Success<number, string>(successValue);
 
         it('should create a success result', () => {
             expect(successResult.IsSuccess).toBeTruthy();
@@ -24,7 +23,7 @@ describe('Result', () => {
 
     describe('Failure case', () => {
         const failureValue = 'Error message';
-        const failureResult = Result.Failure<number, string>(failureValue);
+        const failureResult = Failure<number, string>(failureValue);
 
         it('should create a failure result', () => {
             expect(failureResult.IsFailure).toBeTruthy();

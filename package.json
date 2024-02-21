@@ -22,11 +22,12 @@
         "tsup": "^8.0.2"
     },
     "keywords": [
+        "simply-either-ts",
         "typescript",
-        "result",
-        "error",
+        "either",
+        "failure",
         "success",
-        "ts-expressive-result"
+        "result"
     ],
     "author": "Louis Duboz"
 }

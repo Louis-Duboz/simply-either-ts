@@ -93,7 +93,7 @@ console.log(fib21.IsFailure); // true
 
 const fib21Failure = fib21.Failure;
 console.log(fib21Failure); // [Error: Value cannot exceed the limit of 20.]
-console.log(fib21.Success); // Throws IncorrectEvaluationOfTheResult: Attempt to evaluate a failure as a success.
+console.log(fib21.Success); // Throws IncorrectEvaluationOfTheValue: Attempt to evaluate a failure as a success.
 ```
 
 ## Contributing

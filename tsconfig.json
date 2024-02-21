@@ -1,13 +1,17 @@
 {
     "compilerOptions": {
-        "target": "es6",
-        "module": "commonjs",
+        "target": "ES2022",
+        "module": "CommonJS",
+        "strictNullChecks": true,
+        "noImplicitAny": true,
+        "isolatedModules": true,
         "declaration": true,
         "strict": true,
         "esModuleInterop": true,
         "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true,
-        "outDir": "./Build",
+        "noEmit": true,
+        "outDir": "Build",
     },
     "include": [
         "./Source"

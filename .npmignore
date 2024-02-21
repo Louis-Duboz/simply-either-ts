@@ -1,0 +1,12 @@
+./Source
+./Tests
+./node_modules
+./idea
+
+.env
+.DS_Store
+
+tsconfig.json
+tsup.config.ts
+jest.config.js
+package-lock.json

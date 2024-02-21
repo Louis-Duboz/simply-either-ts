@@ -1,6 +1,6 @@
-import { Result } from '../Source/Result';
-import { AttemptToEvaluateASuccessAsAFailure } from "../Source/Errors/AttemptToEvaluateASuccessAsAFailure";
-import { AttemptToEvaluateAFailureAsASuccess } from "../Source/Errors/AttemptToEvaluateAFailureAsASuccess";
+import { Result } from '../Build/index';
+import { AttemptToEvaluateASuccessAsAFailure } from "../Build/index";
+import { AttemptToEvaluateAFailureAsASuccess } from "../Build/index";
 
 describe('Result', () => {
     describe('Success case', () => {

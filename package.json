@@ -1,20 +1,32 @@
 {
     "name": "ts-expressive-result",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "ts-expressive-result allows you to make errors part of your functions and methods signature.",
-    "author": "Louis Duboz",
     "private": false,
-    "main": "Build/index.js",
-    "types": "Build/index.d.ts",
+    "main": "./Build/index.js",
+    "module": "./Build/index.mjs",
+    "types": "./Build/index.d.ts",
     "license": "MIT",
+    "repository": {
+        "url": "https://github.com/Louis-Duboz/ts-expressive-result"
+    },
     "scripts": {
         "test": "jest",
-        "build": "tsc"
+        "build": "tsup"
     },
     "devDependencies": {
         "@types/jest": "^29.5.12",
         "jest": "^29.7.0",
         "ts-jest": "^29.1.2",
-        "typescript": "^2.7.2"
-    }
+        "typescript": "^5.3.3",
+        "tsup": "^8.0.2"
+    },
+    "keywords": [
+        "typescript",
+        "result",
+        "error",
+        "success",
+        "ts-expressive-result"
+    ],
+    "author": "Louis Duboz"
 }
